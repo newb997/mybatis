@@ -1,5 +1,5 @@
 package com.study.mybatis.board.vo;
-
+//240105
 import java.sql.Date;
 
 public class Reply {

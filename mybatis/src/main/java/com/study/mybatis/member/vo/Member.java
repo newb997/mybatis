@@ -1,5 +1,5 @@
 package com.study.mybatis.member.vo;
-
+//240105
 import java.sql.Date;
 
 public class Member {
