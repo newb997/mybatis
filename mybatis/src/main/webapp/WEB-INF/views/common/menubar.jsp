@@ -35,45 +35,50 @@
 	<h1 align="center">Welcome to AddInEdu Mybatis</h1>
 	<div class="login-area" align="right">
 		<!-- 로그인 전 -->
-		<form action="" method="post">
-			<!-- table>(tr>td*3)*3 -->
-			<table>
-				<tr>
-					<td>아이디</td>
-					<td><input type="text" name="userId" required></td>
-					<td rowspan="2"><button style="height: 50px;">로그인</button></td>
-				</tr>
-				<tr>
-					<td>비밀번호</td>
-					<td><input type="password" name="userPwd" required></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td colspan="3" align="center">
-						<a href="">회원가입</a>
-						<a href="">아이디 / 비번찾기</a>
-					</td>
-				</tr>
-			</table>
-		</form>
+		<c:choose>
+			<c:when test="${ empty loginUser }">
+				<form action="login.me" method="post">
+					<!-- table>(tr>td*3)*3 -->
+					<table>
+						<tr>
+							<td>아이디</td>
+							<td><input type="text" name="userId" required></td>
+							<td rowspan="2"><button style="height: 50px;">로그인</button></td>
+						</tr>
+						<tr>
+							<td>비밀번호</td>
+							<td><input type="password" name="userPwd" required></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td colspan="3" align="center">
+								<a href="enrollForm.me">회원가입</a>
+								<a href="">아이디 / 비번찾기</a>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</c:when>
+			<c:otherwise>
+			
+			<!-- 로그인 후 -->
+				<div>
+					<table>
+						<tr>
+							<td colspan="2">
+								<h3>${ loginUser.user_name }님 환영합니다</h3>
+							</td>
+						</tr>
+						<tr>
+							<td><a href="">마이페이지</a> / </td>
+							<td><a href="logout.me">로그아웃</a></td>
+						</tr>
+					</table>
+				</div>
+			</c:otherwise>
+		</c:choose>
 		
-	<!-- 로그인 후 -->
-<!-- 	
-		<div>
-			<table>
-				<tr>
-					<td colspan="2">
-						<h3>xxx님 환영합니다</h3>
-					</td>
-				</tr>
-				<tr>
-					<td><a href="">마이페이지</a> / </td>
-					<td><a href="">로그아웃</a></td>
-				</tr>
-			</table>
-		</div>
 	</div>
-	 -->
 	
 		<br>
 	
