@@ -26,13 +26,13 @@ public class InsertMemberController extends HttpServlet {
 		m.setPhone(request.getParameter("phone"));
 		m.setAddress(request.getParameter("address"));
 		
-		int a = new MemberServiceImpl().insertMember(m);
-		if(a == 0) {
+		//int a = new MemberServiceImpl().insertMember(m);
+		
+		if(new MemberServiceImpl().insertMember(m) == 0) {
 			request.setAttribute("ErrorMsg", "회원가입 실패");
 			request.getRequestDispatcher("WEB-INF/views/common/errorPage.jsp").forward(request, response);
 		}else {
 			response.sendRedirect(request.getContextPath());
-			System.out.println(a);
 		}
 	}
 

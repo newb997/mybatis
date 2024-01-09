@@ -44,6 +44,12 @@
 	 -->
 	 
 	 <jsp:forward page="WEB-INF/views/main.jsp" />
+	 
+	 <!-- 
+	 	실행순서 
+		index.jsp -> main.jsp(include:menubar.jsp) -> login Servlet -> (interface)MemberService
+		-> MemberServiceImpl -> MemberDao(DB연동) -> member-mapper.xml(실제 sql문)
+	  -->
 </body>
 </html>
 
