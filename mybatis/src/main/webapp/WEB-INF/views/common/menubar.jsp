@@ -87,7 +87,7 @@
 				<tr>
 					<td class="menu">HOME</td>
 					<td class="menu">공지사항</td>
-					<td class="menu">게시판</td>
+					<td onclick="location.href='list.bo?nowPage=1'" class="menu">게시판</td>
 					<td class="menu">ETC</td>
 				</tr>
 			</table>

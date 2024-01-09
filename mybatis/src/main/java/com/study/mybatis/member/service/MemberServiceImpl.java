@@ -29,15 +29,16 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int insertMember(Member m) {
 		SqlSession sqlSession = Template.getSqlSession();
-		int insertUser = mDao.insertMember(sqlSession, m);
+		int result = mDao.insertMember(sqlSession, m);
 		
 		// mybatis-config.xml 에서 <transactionManager type="JDBC" /> JDBC로 해놨으면 commit을 따로 해줘야함 싫으면 MANAGED
-		if(insertUser > 0) {
+		// MANAGED로 해놨으면 if문 필요없음
+		if(result > 0) {
 			sqlSession.commit();
 		}
 		
 		sqlSession.close();
-		return insertUser;
+		return result;
 	}
 
 	@Override

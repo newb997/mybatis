@@ -1,7 +1,5 @@
 package com.study.mybatis.member.dao;
 
-import java.sql.PreparedStatement;
-
 import org.apache.ibatis.session.SqlSession;
 
 import com.study.mybatis.member.vo.Member;
