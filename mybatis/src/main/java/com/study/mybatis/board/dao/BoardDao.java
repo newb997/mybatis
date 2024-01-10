@@ -46,21 +46,23 @@ public class BoardDao {
 		return (ArrayList)sqlSession.selectList("boardMapper.selectSearchList", map, rowBounds);
 	}
 	
-	public int increaseCount(int board_no) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int increaseCount(SqlSession sqlSession, int board_no) {
+		return sqlSession.update("boardMapper.increaseCount", board_no);
 	}
 
 	
-	public Board selectBoard(int board_no) {
-		// TODO Auto-generated method stub
-		return null;
+	public Board selectBoard(SqlSession sqlSession, int board_no) {
+		return sqlSession.selectOne("boardMapper.selectBoard", board_no);
 	}
 
 	
-	public ArrayList<Reply> selectReplyList(int board_no) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Reply> selectReplyList(SqlSession sqlSession, int board_no) {
+		return (ArrayList)sqlSession.selectList("boardMapper.selectReplyList", board_no);
+	}
+
+
+	public int insertReply(SqlSession sqlSession, Reply reply) {
+		return sqlSession.insert("boardMapper.insertReply", reply);
 	}
 
 	

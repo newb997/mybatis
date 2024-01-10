@@ -48,11 +48,13 @@
                 <th width="20%">작성일</th>
             </thead>
             <tbody>
+            	<!-- var :  현재 항목을 나타내는 변수의 이름을 정의 -->
+            	<!-- varStatus : 반복 상태를 나타내는 변수의 이름을 정의  -->
 				<c:forEach var="b" items="${ list }" varStatus="s">
 					<tr>
 						<%-- <td>${ b.board_no }</td> --%>
-						<td>${ s.count }</td>
-						<td>${ b.board_title }</td>
+						<td>${ (pi.totalRecord - (pi.nowPage-1)*pi.numPerPage)-s.index }</td>
+						<td><a href="detail.bo?bno=${ b.board_no }">${ b.board_title }</a></td>		<!-- bno=${ b.board_no }  bno는 키 $ { 값 } -->
 						<td>${ b.board_writer }</td>
 						<td>${ b.count }</td>
 						<td>${ b.create_date }</td>
@@ -86,7 +88,7 @@
 						<a href="list.bo?nowPage=${ pi.nowPage-1 }">[이전]</a>
 					</c:when>
 					<c:otherwise>
-						<a href="">[이전]</a>
+						<a href="search.bo?nowPage=${ pi.nowPage-1 }&keyField=${ keyField }&keyWord=${ keyWord }">[이전]</a>
 					</c:otherwise>
 				</c:choose>
 			</c:if>
@@ -105,7 +107,14 @@
 						</c:choose>
 					</c:when>
 					<c:otherwise>
-						<a href="">[${ p }]</a>
+						<c:choose>
+							<c:when test="${ p eq pi.nowPage }">
+								<a href="search.bo?nowPage=${ p }&keyField=${ keyField }&keyWord=${ keyWord }" style="color: gold">[${ p }]</a>
+							</c:when>
+							<c:otherwise>
+								<a href="search.bo?nowPage=${ p }&keyField=${ keyField }&keyWord=${ keyWord }">[${ p }]</a>
+							</c:otherwise>
+						</c:choose>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
@@ -117,7 +126,7 @@
 						<a href="list.bo?nowPage=${ pi.nowPage+1 }">[다음]</a>
 					</c:when>
 					<c:otherwise>
-						<a href="">[다음]</a>
+						<a href="search.bo?nowPage=${ pi.nowPage+1 }&keyField=${ keyField }&keyWord=${ keyWord }">[다음]</a>
 					</c:otherwise>
 				</c:choose>
 			</c:if>

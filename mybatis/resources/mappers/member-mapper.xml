@@ -30,7 +30,7 @@
 	  -->
 	  
 	  <resultMap type="Member" id="memberResultSet">
-	  	<!-- column : DB이름 / property : vo 이름 -->
+	  	<!-- column : DB이름 / property : java vo 이름 -->
 	  	<result column="user_id" property="user_id"/>
 	  	<result column="user_pwd" property="user_pwd"/>
 	  	<result column="user_name" property="user_name"/>
