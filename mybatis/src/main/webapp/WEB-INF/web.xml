@@ -99,4 +99,24 @@
     <servlet-name>ReplyInsertController</servlet-name>
     <url-pattern>/rinsert.bo</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MypageController</display-name>
+    <servlet-name>MypageController</servlet-name>
+    <servlet-class>com.study.mybatis.member.contoroller.MypageController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MypageController</servlet-name>
+    <url-pattern>/mypage.me</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MypageUpdateController</display-name>
+    <servlet-name>MypageUpdateController</servlet-name>
+    <servlet-class>com.study.mybatis.member.contoroller.MypageUpdateController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MypageUpdateController</servlet-name>
+    <url-pattern>/mypageUpdate.me</url-pattern>
+  </servlet-mapping>
 </web-app>

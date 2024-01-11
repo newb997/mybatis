@@ -53,11 +53,18 @@
 	<select id="checkId" resultType="_int">
 		select count(*) 
 		from member 
-		where user_id = #{ userId }
+		where user_id = #{ user_id }
 	</select>
 	
 	<insert id="insertMember" parameterType="Member">
 		insert into member (user_id, user_pwd, user_name, email, birthday, gender, phone, address) 
 		values (#{ user_id }, #{ user_pwd }, #{ user_name }, #{ email }, #{ birthday }, #{ gender }, #{ phone }, #{ address } )
 	</insert>
+	
+	<update id="updateMember">
+		update member
+		set user_name = #{ user_name }, user_pwd = #{ user_pwd }, email = #{ email }, phone = #{ phone }, address = #{ address }
+		where user_id = #{ user_id }
+	</update>
+	
 </mapper>
